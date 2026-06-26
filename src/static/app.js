@@ -29,25 +29,27 @@ document.addEventListener("DOMContentLoaded", () => {
         activityCard.className = "activity-card";
 
         const spotsLeft = details.max_participants - details.participants.length;
-        const participants = details.participants
-          .map(
-            (participant) => `
-              <li>
-                <span>${escapeHtml(participant)}</span>
-                <button
-                  type="button"
-                  class="delete-participant"
-                  data-activity="${escapeHtml(name)}"
-                  data-email="${escapeHtml(participant)}"
-                  aria-label="Unregister ${escapeHtml(participant)} from ${escapeHtml(name)}"
-                  title="Unregister participant"
-                >
-                  &times;
-                </button>
-              </li>
-            `
-          )
-          .join("");
+        const participants = details.participants.length
+          ? details.participants
+              .map(
+                (participant) => `
+                  <li>
+                    <span>${escapeHtml(participant)}</span>
+                    <button
+                      type="button"
+                      class="delete-participant"
+                      data-activity="${escapeHtml(name)}"
+                      data-email="${escapeHtml(participant)}"
+                      aria-label="Unregister ${escapeHtml(participant)} from ${escapeHtml(name)}"
+                      title="Unregister participant"
+                    >
+                      &times;
+                    </button>
+                  </li>
+                `
+              )
+              .join("")
+          : '<li class="no-participants">No participants yet</li>';
 
         activityCard.innerHTML = `
           <h4>${name}</h4>
