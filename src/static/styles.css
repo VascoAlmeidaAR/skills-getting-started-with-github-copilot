@@ -133,6 +133,16 @@ section h3 {
   line-height: 1;
 }
 
+.delete-participant svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
 .delete-participant:hover {
   background-color: #ffcdd2;
 }
